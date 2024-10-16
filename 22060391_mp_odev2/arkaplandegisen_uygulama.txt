@@ -1,0 +1,42 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: ColorChanger(),
+    );
+  }
+}
+
+class ColorChanger extends StatefulWidget {
+  @override
+  _ColorChangerState createState() => _ColorChangerState();
+}
+
+class _ColorChangerState extends State<ColorChanger> {
+  bool isYellow = true;
+
+  void _changeColor() {
+    setState(() {
+      isYellow = !isYellow;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: isYellow ? Colors.yellow : Colors.blue.shade900,
+      body: Center(
+        child: ElevatedButton(
+          onPressed: _changeColor,
+          child: Text('BUTONA BAS'),
+        ),
+      ),
+    );
+  }
+}
